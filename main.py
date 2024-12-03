@@ -41,14 +41,8 @@ def get_markdown(
     seed: int
 ) -> str:
     system_prompt = (
-        "Convert the provided image into Markdown format. Ensure that all content "
-        "from the page is included, such as headers, footers, subtexts, images "
-        "(with alt text if possible), tables, and any other elements.\n\n"
-        "Requirements:\n"
-        "- Output Only Markdown: Return solely the Markdown content without any "
-        "additional explanations or comments.\n"
-        "- No Delimiters: Do not use code fences or delimiters.\n"
-        "- Complete Content: Do not omit any part of the page."
+        "Extract the movie title from the provided image. "
+        "Return only the title without any additional information."
     )
     
     final_image_url = file_path if is_remote_file(file_path) else f"data:image/jpeg;base64,{encode_image(file_path)}"
